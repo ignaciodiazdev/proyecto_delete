@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cliente</title>
-</head>
-<body>
-  <h1>Cliente</h1>
+{% extends 'core/base.html' %}
+{% block titulo %}
+  Cliente 
+{% endblock titulo %}
+{% block contenido %}
   {% for cliente in clientes %}
-    <h2>{{ cliente.nombre }}</h2>
-    <p>{{ cliente.apellido }}</p>
-    <p>{{ cliente.edad }}</p>
-    {% if cliente.pais %}
-      <p>{{ cliente.pais }}</p>
-    {% else %}
-      <p>No registra País de origen.</p>
-    {% endif %}
+  <h2>{{ cliente.nombre }}</h2>
+  <p>{{ cliente.apellido }}</p>
+  <p>{{ cliente.edad }}</p>
+  {% if cliente.pais %}
+    <p>{{ cliente.pais }}</p>
+  {% else %}
+    <p>No registra País de origen.</p>
+  {% endif %}
   {% endfor %}
-</body>
-</html>
+  <a href="{% url 'core:home' %}">Ir a Core</a>
+{% endblock contenido %}
+

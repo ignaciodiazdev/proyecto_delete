@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% block titulo %}
+  Producto
+{% endblock titulo %}
+{% block contenido %}
+  {% for producto in productos %}
+    <h2>{{ producto.nombre }}</h2>
+    <li>{{ producto.descripcion }}</li>
+  {% endfor %}
+  <a href="{% url 'core:home' %}">Ir a Core</a>
+{% endblock contenido %}

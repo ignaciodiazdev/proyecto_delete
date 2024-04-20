@@ -1,7 +1,6 @@
-
-from . import views
 from django.urls import path
-app_name = "cliente"
+from . import views
+app_name = "core"
 
 urlpatterns = [
     path('', views.home, name="home")
