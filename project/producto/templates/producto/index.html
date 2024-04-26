@@ -1,11 +1,20 @@
 {% extends 'core/base.html' %}
 {% block titulo %}
-  Producto
+  Productos
 {% endblock titulo %}
 {% block contenido %}
-  {% for producto in productos %}
-    <h2>{{ producto.nombre }}</h2>
-    <li>{{ producto.descripcion }}</li>
-  {% endfor %}
-  <a href="{% url 'core:home' %}">Ir a Core</a>
+  <div class="fs-3 py-4">
+    <a href="{% url 'producto:productocategoria_create' %}">Crear Categoría de Productos</a>
+  </div>
+  <div class="py-lg-4 ">
+    <form action="{% url 'producto:home' %}" method="get">
+      <input type="text" name="consulta" placeholder="Buscar...">
+    </form>
+  </div>
+  <ul>
+    {% for producto in productos %}
+      <li> {{ producto }}</li>
+    {% endfor %}
+  </ul>
+  {# <a href="{% url 'core:home' %}">Ir a Core</a> #}
 {% endblock contenido %}
