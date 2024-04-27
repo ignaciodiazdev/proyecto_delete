@@ -1,7 +1,9 @@
 {% extends 'core/base.html' %}
+
 {% block titulo %}
-  Productos
+  {% include 'core/components/titulo1.html' with titulo="Producto" %}
 {% endblock titulo %}
+
 {% block contenido %}
   <div class="fs-3 py-4">
     <a href="{% url 'producto:productocategoria_create' %}">Crear Categoría de Productos</a>
