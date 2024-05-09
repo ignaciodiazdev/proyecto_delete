@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+  {% include 'core/components/titulo1.html' with titulo="Productos: Detalle de una Categoría de Producto" %}
+{% endblock titulo %}
+
+{% block contenido %}
+
+  <ul>
+    <li>Nombre: {{ producto.nombre }}</li>
+    <li>Descripción: {{ producto.descripcion  }}</li>
+  </ul>
+  <div class="fs-3 py-4">
+    <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
+  </div>
+{% endblock contenido %}

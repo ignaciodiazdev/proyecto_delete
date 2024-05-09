@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+  {% include 'core/components/titulo1.html' with titulo="Productos: Borrar una Categoría de Producto" %}
+{% endblock titulo %}
+
+{% block contenido %}
+  <p class="fs-5 fst-italic">¿Confirma eliminar "{{ producto.nombre }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+  </form>
+  <div class="fs-3 py-4">
+    <a href="{% url 'producto:productocategoria_list' %}">Volver</a>
+  </div>
+{% endblock contenido %}

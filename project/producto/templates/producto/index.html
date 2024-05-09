@@ -8,15 +8,10 @@
   <div class="fs-3 py-4">
     <a href="{% url 'producto:productocategoria_create' %}">Crear Categoría de Productos</a>
   </div>
-  <div class="py-lg-4 ">
-    <form action="{% url 'producto:home' %}" method="get">
-      <input type="text" name="consulta" placeholder="Buscar...">
-    </form>
+  <div class="fs-3 py-4">
+    <a href="{% url 'producto:productocategoria_list' %}">Listar Categorías de Productos</a>
   </div>
-  <ul>
-    {% for producto in productos %}
-      <li> {{ producto }}</li>
-    {% endfor %}
-  </ul>
-  {# <a href="{% url 'core:home' %}">Ir a Core</a> #}
+  <div class="fs-3 py-4">
+    <a href="{% url 'core:home' %}">Volver a Inicio</a>
+  </div>
 {% endblock contenido %}
