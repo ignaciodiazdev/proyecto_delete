@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -25,6 +26,16 @@ class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
     # context_object_name = "productos"
     # template_name = "producto/productocategoria___list.html"
+
+    def get_queryset(self) -> QuerySet:
+        if self.request.GET.get("consulta"):
+            consulta = self.request.GET.get("consulta")
+            object_list = models.ProductoCategoria.objects.filter(
+                nombre__icontains=consulta)
+            return object_list
+        else:
+            object_list = models.ProductoCategoria.objects.all()
+            return object_list
     # NOTA:
     # 1) Por defecto el ListView busca el template que tenga el mismo nombre de la clase y agregado el "_list", osea que no es necesario poner el url, a no ser que quieras personalizarse y ahí se usa el template_name
     # 2) Por defecto el ListView manda el contexto con valor de nombre "object_list"
