@@ -1,7 +1,11 @@
 {% extends 'core/base.html' %}
 
 {% block titulo %}
-{% include 'core/components/titulo1.html' with titulo="Productos: Crear Categoría de Productos" %}
+  {% if form.instance.pk %}
+    {% include 'core/components/titulo1.html' with titulo="Productos: Editar Categoría de Productos" %}
+  {% else %}
+    {% include 'core/components/titulo1.html' with titulo="Productos: Crear Categoría de Productos" %}
+  {% endif %}
 {% endblock titulo %}
 
 {% block contenido %}
