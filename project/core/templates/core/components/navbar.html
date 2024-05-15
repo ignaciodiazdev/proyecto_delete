@@ -17,13 +17,31 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'core:home' %}">Inicio</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'cliente:home' %}">Clientes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'producto:home' %}">Producto</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cliente:home' %}">Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'producto:home' %}">Producto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-bg-info rounded-1 ">{{ user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <form action="{% url 'core:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-dark">
+                Logout
+              </button>
+            </form>
+          </li>
+
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'core:login' %}">Login</a>
+          </li>
+        {% endif %}
       </ul>
     </div>
   </div>
