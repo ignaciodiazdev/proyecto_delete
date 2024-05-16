@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
@@ -96,7 +97,7 @@ class ProductoCategoriaDetail(DetailView):
 #     return render(request, "producto/productocategoria_delete.html", context={"producto": query})
 
 
-class ProductoCategoriaDelete(DeleteView):
+class ProductoCategoriaDelete(LoginRequiredMixin, DeleteView):
     model = models.ProductoCategoria
     # template_name = "producto/productocategoria_delete.html"
     success_url = reverse_lazy("producto:productocategoria_list")

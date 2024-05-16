@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% block title %} Registro | Usuario {% endblock title %}
+{% block titulo %}
+    {% include 'core/components/titulo1.html' with titulo="Registro de Usuario" %}
+{% endblock titulo %}
+{% block contenido %}
+    <div class="container">
+        <h1 class="mt-4">Registro</h1>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Registrar nuevo usuario</button>
+    </form>
+{% endblock contenido %}
