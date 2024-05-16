@@ -6,6 +6,10 @@
 {% endblock titulo %}
 
 {% block contenido %}
+  {% if user.is_authenticated %}
+    {{mensaje}}    
+    <p class="fs-2">Bienvenido, {{user.username}}</p>
+  {% endif %}
   <!-- Heading Row-->
   <div class="row gx-4 gx-lg-5 align-items-center my-5">
     <div class="col-lg-7">
